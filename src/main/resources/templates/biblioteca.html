@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Biblioteca</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #EAF6FF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .contenedor {
+            width: 550px;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, .12);
+            text-align: center;
+        }
+
+        h1 {
+            color: #5B4B8A;
+            font-size: 34px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .decoracion {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <h1 th:text="${nombreBiblioteca}"></h1>
+
+        <p>Bienvenido al catálogo de libros infantiles.</p>
+        <p>Hecho por Mendoza Jimenez Melody Nathalie</p>
+
+    </div>
+
+</body>
+
+</html>

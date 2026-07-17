@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Búsqueda de Libros</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #EAF6FF;
+            padding: 40px;
+        }
+
+        .contenedor {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 35px;
+            border-radius: 18px;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, .12);
+        }
+
+        h1 {
+            color: #5B4B8A;
+            margin-bottom: 20px;
+            font-size: 32px;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 25px;
+            color: #555;
+        }
+
+        strong {
+            color: #FF8FAB;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            overflow: hidden;
+            border-radius: 12px;
+            background: white;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, .08);
+        }
+
+        th {
+            background: #FFD6E8;
+            color: #4A4A4A;
+            padding: 14px;
+            font-size: 16px;
+        }
+
+        td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #EEEEEE;
+        }
+
+        tr:nth-child(odd) {
+            background: #FFFDF5;
+        }
+
+        tr:nth-child(even) {
+            background: #F4ECFF;
+        }
+
+        tr:hover {
+            background: #DFF5E3;
+            transition: .3s;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <h1>Resultado de la búsqueda</h1>
+
+        <p>
+            Género buscado:
+            <strong th:text="${genero}"></strong>
+        </p>
+
+
+        <p th:if="${#lists.isEmpty(libros)}">
+            No se encontraron libros para este género.
+        </p>
+
+        <table th:if="${!#lists.isEmpty(libros)}">
+
+            <table>
+
+                <tr>
+                    <th>Título</th>
+                    <th>Autor</th>
+                    <th>Género</th>
+                    <th>Año</th>
+                </tr>
+
+                <tr th:each="libro : ${libros}">
+                    <td th:text="${libro.titulo}"></td>
+                    <td th:text="${libro.autor}"></td>
+                    <td th:text="${libro.genero}"></td>
+                    <td th:text="${libro.anioPublicacion}"></td>
+                </tr>
+
+            </table>
+
+    </div>
+
+</body>
+
+</html>
